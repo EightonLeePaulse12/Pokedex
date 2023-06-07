@@ -1,7 +1,7 @@
 const pokedex = document.querySelector("#pokdex");
 const pokemon = [];
 
-for (let i = 1; i < 906; i++) {
+for (let i = 1; i < 494; i++) {
   let url = `https://pokeapi.co/api/v2/pokemon/${i}`;
   pokemon.push(fetch(url).then((res) => res.json()));
 }
