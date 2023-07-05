@@ -1,17 +1,18 @@
 const pokedex = document.querySelector("#pokdex");
 const pokemon = [];
+const pokedesc = [];
 
-for (let i = 1; i < 494; i++) {
+for (let i = 1; i < 152; i++) {
   let url = `https://pokeapi.co/api/v2/pokemon/${i}`;
+  let newUrl = `https://pokeapi.co/api/v2/pokemon-species/${i}`;
   pokemon.push(fetch(url).then((res) => res.json()));
 }
 async function render() {
   await Promise.all(pokemon).then((results) => {
     results.forEach((element) => {
-      console.log(element);
       pokedex.innerHTML += `
                         <div class="container">
-                        <div class="card">
+                        <div class="card" id="card">
                         <p>${element.id}</p>
                       <h1>${element.name}</h1>
                       <p>${element.types
